@@ -12,8 +12,6 @@ import InputBase from '@material-ui/core/InputBase'
 
 class Navbar extends Component {
 
-
-
     render() {
         const { classes } = this.props;
         return (
