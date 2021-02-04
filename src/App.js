@@ -3,16 +3,19 @@ import Form from './Form'
 import PageContent from './PageContent';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { LanguageProvider } from './contexts/LanguageContext'
 
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider>
-        <PageContent>
-          <Navbar />
-          <Form />
-        </PageContent>
+        <LanguageProvider>
+          <PageContent>
+            <Navbar />
+            <Form />
+          </PageContent>
+        </LanguageProvider>
       </ThemeProvider>
     </div>
   );
