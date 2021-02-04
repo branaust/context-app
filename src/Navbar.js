@@ -9,7 +9,22 @@ import styles from './styles/NavbarStyles'
 import SearchIcon from '@material-ui/icons/Search'
 import InputBase from '@material-ui/core/InputBase'
 import { ThemeContext } from './contexts/ThemeContext'
+import { withLanguageContext } from './contexts/LanguageContext'
 
+const languages = {
+    english: {
+        search: "Search",
+        flag: "🇺🇸"
+    },
+    spanish: {
+        search: "Buscar",
+        flag: "🇲🇽"
+    },
+    german: {
+        search: "Suche",
+        flag: "🇩🇪"
+    }
+}
 
 class Navbar extends Component {
     static contextType = ThemeContext
@@ -17,12 +32,15 @@ class Navbar extends Component {
     render() {
         const { isDarkMode, toggleTheme } = this.context
         const { classes } = this.props;
+        const { language } = this.props.languageContext
+        const { search, flag } = languages[language]
+
         return (
             <div className={classes.root}>
                 <AppBar position="static" color={isDarkMode ? "default" : "primary"}>
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                            <span>🚩</span>
+                            <span>{flag}</span>
                         </IconButton>
                         <Typography variant="h6" className={classes.title} color='inherit'>
                             App Title
@@ -33,7 +51,7 @@ class Navbar extends Component {
                             <div className={classes.searchIcon} >
                                 <SearchIcon />
                             </div>
-                            <InputBase placeholder="Search..." classes={{
+                            <InputBase placeholder={`${search}...`} classes={{
                                 root: classes.inputRoot,
                                 input: classes.inputInput
                             }} />
@@ -47,4 +65,4 @@ class Navbar extends Component {
 }
 
 
-export default withStyles(styles)(Navbar)
+export default withLanguageContext(withStyles(styles)(Navbar))

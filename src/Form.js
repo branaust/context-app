@@ -22,21 +22,21 @@ const languages = {
         password: "Password",
         remember: "Remember Me",
         signin: "Sign In",
-        search: "Search"
+        
     },
     spanish: {
         email: "Correo Electrónico",
         password: "Contraseña",
         remember: "Recuérdame",
         signin: "Registrarse",
-        search: "Buscar"
+        
     },
     german: {
         email: 'Email',
         password: 'Passwort',
         remember: "Behalte mich in Erinnerung",
         signin: "Anmelden",
-        search: "Suche"
+        
     }
 }
 class Form extends Component {
